@@ -1,0 +1,27 @@
+.icon_item {
+    border: 1px solid transparent;
+    background: transparent;
+    padding: 8px 24px 16px 24px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+}
+
+.icon_item:hover {
+    border: 1px solid #DDDDDD;
+    background-color: #F8F8F8;
+}
+
+.icon_header,
+.icon_content {
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: 28px auto;
+}
+
+@media only screen and (max-width: 1130px) and (pointer: coarse) {
+    .icon_item {
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+    }
+}

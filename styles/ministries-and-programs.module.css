@@ -1,0 +1,123 @@
+.header {
+    background-image: url('../public/gradient.png');
+    background-position: top;
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    margin-top: -7px;
+    min-height: 475px;
+    padding: 0 160px;
+}
+
+.header_content {
+    max-width: 800px;
+    padding-top: 193px;
+}
+
+.header_content__p {
+    margin: 32px 0 0 0;
+}
+
+.bold_font {
+    color: #FF7700;
+    font-weight: bold;
+}
+
+.m_and_p {
+    padding: 0 160px;
+}
+
+.featured_ministry {
+    display: flex;
+    margin: 40px 0;
+    justify-content: space-between;
+}
+
+.ministries_and_programs__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 0 1 calc(50% - 32px);
+}
+
+.ministries_and_programs__content_p {
+    max-width: 510px;
+}
+
+.section_content__p {
+    max-height: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.section_content__p::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0.6323119777158774) 90%, rgba(255, 255, 255, 1) 100%);
+}
+
+.ministries_list__container {
+    position: relative;
+    background-color: #FFF;
+}
+
+.ministry_list__item {
+    display: grid;
+    width: 500px;
+    align-content: space-between;
+    grid-gap: 8px 0;
+    position: relative;
+}
+
+.background_image {
+    font-size: 300px;
+    line-height: auto;
+    position: absolute;
+    bottom: 25%;
+    right: 0;
+    color: rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 1130px) {
+    .m_and_p {
+        padding: 0 60px;
+    }
+
+    .header {
+        padding: 60px;
+        background-size: cover;
+    }
+
+    .featured_ministry {
+        display: grid;
+        grid-gap: 24px 0;
+        margin: 0;
+    }
+
+    .ministries_and_programs__content {
+        display: grid;
+        grid-gap: 16px;
+    }
+
+    .ministry_list__item {
+        width: 380px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .m_and_p {
+        padding: 0 16px;
+    }
+
+    .header {
+        padding: 16px;
+    }
+
+    .ministry_list__item {
+        width: 285px;
+    }
+}

@@ -1,0 +1,175 @@
+.above_fold__container {
+    margin-top: 90px;
+    padding: 100px 160px 0;
+    display: flex;
+}
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    top: 54px;
+    right: 0;
+    left: 0;
+    padding: 8px 160px;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.700);
+    backdrop-filter: blur(25px);
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.inner_navbar {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1520px;
+    margin: 0 auto;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 16px;
+    font-size: 15px;
+}
+
+.above_fold__left_section,
+.above_fold__right_section {
+    flex: 0 1 calc(50%);
+}
+
+.above_fold__right_section {
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 20px;
+}
+
+.deep_and_wide__section {
+    padding: 0 160px;
+    margin-top: 64px;
+}
+
+.deep_and_wide__container {
+    display: flex;
+}
+
+.deep_and_wide__left,
+.deep_and_wide__right {
+    flex: 0 1 calc(50%);
+}
+
+.deep_and_wide__right {
+    margin: 35px 0 0 16px;
+}
+
+.deep_and_wide__sub_section {
+    margin-bottom: 32px;
+}
+
+.section_mini__title {
+    display: block;
+    margin: 8px 0;
+}
+
+.mission_and_vision__artical {
+    display: block;
+    margin: 16px 0;
+    max-width: 510px;
+}
+
+.list_group {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list_inner__group {
+    flex: 0 1 calc(50%);
+}
+
+.list_inner__group:last-child {
+    padding-left: 10px;
+}
+
+.illustration1,
+.illustration2 {
+    min-height: 100px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.illustration1 {
+    align-items: flex-end;
+}
+
+.illustration2 {
+    align-items: flex-start;
+}
+
+.team_members__list {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin-top: 48px;
+    grid-gap: 8px;
+}
+
+@media screen and (max-width: 1130px) {
+    .above_fold__container {
+        display: grid;
+        padding: 16px 60px;
+    }
+
+    .navbar {
+        padding: 16px 60px;
+    }
+
+    .deep_and_wide__section {
+        padding: 0 60px;
+    }
+
+    .deep_and_wide__container {
+        display: grid;
+    }
+
+    .above_fold__right_section {
+        display: grid;
+        grid-gap: 32px 0;
+        padding: 0px;
+        margin-top: 32px;
+    }
+
+    .deep_and_wide__right {
+        margin: 35px 0 0 0;
+    }
+
+    .team_members__list {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        margin-top: 48px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .above_fold__container {
+        display: grid;
+        padding: 16px;
+    }
+
+    .navbar {
+        padding: 16px;
+    }
+
+    .navbar_title {
+        display: none;
+    }
+
+    .deep_and_wide__section {
+        padding: 0 16px;
+    }
+
+    .team_members__list {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        margin-top: 48px;
+    }
+}

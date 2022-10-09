@@ -1,0 +1,132 @@
+.contact_us {
+    margin: 0 auto;
+    padding: 210px 160px 0;
+}
+
+.header_content {
+    max-width: 440px;
+    margin: 32px 0 103px;
+}
+
+.main_section {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 32px;
+}
+
+.form_section {
+    display: grid;
+    grid-gap: 16px 0;
+    max-width: 440px;
+}
+
+.form {
+    display: grid;
+    grid-gap: 16px 0;
+    background-color: #FFFFFF;
+}
+
+.form_title {
+    margin: 8px 0;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_label {
+    color: #FF7700;
+    font-weight: 600;
+}
+
+.form_input,
+.form_textarea {
+    border-radius: 3px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: #14213D07;
+    margin: 8px 0;
+    font: inherit;
+    font-size: 16px;
+}
+
+.form_input:active,
+.form_textarea:active {
+    outline: none;
+    border: 1px solid #FF7700;
+}
+
+.form_input::placeholder,
+.form_textarea::placeholder {
+    color: #14213e60;
+}
+
+.form_textarea {
+    resize: none;
+}
+
+.submit_button {
+    border: none;
+    background-color: #FF7700;
+    color: #FFFFFF;
+    border-radius: 2px;
+    padding: 10px 16px;
+}
+
+.contact_section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+}
+
+.contact_item {
+    margin: 16px 0;
+}
+
+
+@media only screen and (max-width: 1130px) {
+    .contact_us {
+        margin: 0 auto;
+        padding: 210px 60px 0;
+    }
+
+    .map_container {
+        border: none;
+        width: 100%;
+        max-width: 440px;
+    }
+
+    .contact_section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .contact_us {
+        padding: 120px 16px 0;
+    }
+
+    .header_content {
+        margin: 32px 0 60px;
+    }
+
+    .main_section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form_section {
+        min-width: 100%;
+    }
+
+    .map_container {
+        border: none;
+        min-width: 100%;
+    }
+
+    .contact_section {
+        grid-template-columns: 1fr;
+    }
+}
