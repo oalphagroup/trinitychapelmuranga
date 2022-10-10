@@ -1,3 +1,5 @@
+import Router from 'next/router';
+
 import placeholder from '../../public/placeholder.png';
 
 import Layout from '../../components/layout';
@@ -6,6 +8,8 @@ import ContentImage from '../../components/content-image';
 import styles from '../../styles/ministries.module.css';
 
 function Egroup() {
+  const router = Router;
+
   const group1Images = [{ src: placeholder, description: 'Placeholder Image' }];
 
   const group2Images = [
@@ -17,6 +21,15 @@ function Egroup() {
   const group3Images = [
     { src: placeholder, description: 'Placeholder Image' },
     { src: placeholder, description: 'Placeholder Image' },
+  ];
+
+  const navs = [
+    { name: 'What is E-group' },
+    { name: 'Accountability' },
+    { name: 'Belonging' },
+    { name: 'Care' },
+    { name: 'Discipline' },
+    { name: 'Evangelism' },
   ];
 
   return (
@@ -36,19 +49,28 @@ function Egroup() {
         </p>
       </div>
       <main className={styles.main_section}>
-        <div className={styles.mini_nav}>
-          <h6 className="title3">E - Group</h6>
-          <ul className={styles.nav_items}>
-            <li className={styles.nav_item}>E-Group</li>
-            <li className={styles.nav_item}>Accountability</li>
-            <li className={styles.nav_item}>Belonging</li>
-            <li className={styles.nav_item}>Care</li>
-            <li className={styles.nav_item}>Discipline</li>
-            <li className={styles.nav_item}>Evangelism</li>
-          </ul>
+        <div className="mini-nav">
+          <div className="nav-items__container">
+            <h6 className="title3">
+              E - Group
+            </h6>
+            <ul className="nav-items">
+              {navs.map(({ name }) => {
+                return (
+                  <li
+                    className="nav-item"
+                    key={name}
+                    onClick={() => router.push(`${router.pathname}/#${name}`)}
+                  >
+                    {name}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
         <div className={styles.main_content}>
-          <h6 className={`${styles.content_title} orange-font`}>
+          <h6 id="What is E-group"className={`${styles.content_title} orange-font`}>
             What is E-group
           </h6>
           <p className="content_paragraph">
@@ -58,7 +80,10 @@ function Egroup() {
             of an eGroup’s Life;
           </p>
           <ContentImage images={group1Images} />
-          <h6 className={`${styles.content_title} orange-font`}>
+          <h6
+            id="Accountability"
+            className={`${styles.content_title} orange-font`}
+          >
             Accountability
           </h6>
           <p>
@@ -68,7 +93,9 @@ function Egroup() {
             another to living their lives as God intended; not just in public
             life but in private too.
           </p>
-          <h6 className={`${styles.content_title} orange-font`}>Belonging</h6>
+          <h6 id="Belonging" className={`${styles.content_title} orange-font`}>
+            Belonging
+          </h6>
           <p>
             With limited time for Sunday interaction, one may not easily connect
             with other believers. In our small groups we: pray, eat, love, cry
@@ -77,7 +104,9 @@ function Egroup() {
             come to the place where they can confidently say, “This is my
             family” when referring to their eGroup
           </p>
-          <h6 className={`${styles.content_title} orange-font`}>Care</h6>
+          <h6 id="Care" className={`${styles.content_title} orange-font`}>
+            Care
+          </h6>
           <p>
             Christians are called to be like Jesus, caring for the hurt &
             injured members of the body of Christ and sharing the Good News. Our
@@ -88,7 +117,9 @@ function Egroup() {
             and care for them long after the event has happened.
           </p>
           <ContentImage images={group2Images} />
-          <h6 className={`${styles.content_title} orange-font`}>Discipline</h6>
+          <h6 id="Discipline" className={`${styles.content_title} orange-font`}>
+            Discipline
+          </h6>
           <p>
             eGroups are our strongest avenue for discipleship and
             transformation. They complement our Sunday Services by providing an
@@ -98,7 +129,9 @@ function Egroup() {
             discussions that require accountability and follow-up, we are able
             to nurture one another to spiritual maturity through our eGroups.
           </p>
-          <h6 className={`${styles.content_title} orange-font`}>Evangelism</h6>
+          <h6 id="Evangelism" className={`${styles.content_title} orange-font`}>
+            Evangelism
+          </h6>
           <p>
             The process of ‘fishing for men’ includes being relevant in the 6
             sectors of society through their gifts to meet felt needs and
@@ -117,6 +150,76 @@ function Egroup() {
           <ContentImage images={group3Images} />
         </div>
       </main>
+      <style jsx>
+        {`
+          .mini-nav {
+            margin-top: 54px;
+            position: relative;
+          }
+
+          .nav-items__container {
+            position: sticky;
+            top: 74px;
+          }
+
+          .nav-item {
+            padding: 8px 0;
+            user-select: none;
+          }
+
+          @media screen and (max-width: 1130px) {
+            .mini-nav {
+              margin: 0;
+              position: fixed;
+              inset: 54px 0 auto 0;
+              border: 1px solid #ddd;
+              background-color: #ffffff;
+              width: 100vw;
+              overflow-x: scroll;
+            }
+
+            .nav-items__container h6 {
+              display: none;
+            }
+
+            .nav-items {
+              display: grid;
+              grid-template-columns: repeat(${navs.length}, 1fr);
+              width: fit-content;
+              grid-gap: 0 16px;
+              padding: 0 160px;
+              // removes the breaks caused by spaces in words
+              white-space: nowrap;
+            }
+
+            .nav-item::before {
+              display: none;
+            }
+
+            .nav-items:-webkit-scrollbar {
+              display: none;
+            }
+
+            /* Hide scrollbar for IE, Edge and Firefox */
+            .nav-items {
+              -ms-overflow-style: none; /* IE and Edge */
+              scrollbar-width: none; /* Firefox */
+            }
+          }
+
+          @media screen and (max-width: 1040px) {
+            .nav-items {
+              padding: 8px 60px;
+            }
+          }
+
+          @media screen and (max-width: 768px) {
+            .nav-items {
+              padding: 8px 16px;
+            }
+          }
+        `}
+      </style>
     </Layout>
   );
 }

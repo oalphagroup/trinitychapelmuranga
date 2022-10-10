@@ -3,9 +3,9 @@ import Image from 'next/image';
 function ContentImage({ images }) {
   return (
     <ul className="image-container">
-      {images.map((image) => {
+      {images.map((image, index) => {
         return (
-          <li className="image-item" key={image.description}>
+          <li className="image-item" key={image.description + index}>
             <Image src={image.src} alt={image.description} />
             <span className="caption">{image.description}</span>
           </li>

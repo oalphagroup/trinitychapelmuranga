@@ -1,3 +1,5 @@
+import Router from 'next/router';
+
 import placeholder from '../../public/placeholder.png';
 
 import Layout from '../../components/layout';
@@ -6,6 +8,8 @@ import ContentImage from '../../components/content-image';
 import styles from '../../styles/ministries.module.css';
 
 function Kinara() {
+  const router = Router;
+
   const group1Images = [{ src: placeholder, description: 'Placeholder Image' }];
 
   const group2Images = [
@@ -14,9 +18,12 @@ function Kinara() {
     { src: placeholder, description: 'Placeholder Image' },
   ];
 
-  const group3Images = [
-    { src: placeholder, description: 'Placeholder Image' },
-    { src: placeholder, description: 'Placeholder Image' },
+  const navs = [
+    { name: 'What is Kinara' },
+    { name: 'Objective' },
+    { name: 'Kinara Life' },
+    { name: 'Ministries' },
+    { name: 'Discipleship' },
   ];
 
   return (
@@ -43,18 +50,29 @@ function Kinara() {
         </div>
       </div>
       <main className={styles.main_section}>
-        <div className={styles.mini_nav}>
-          <h6 className="title3">Kinara</h6>
-          <ul className={styles.nav_items}>
-            <li className={styles.nav_item}>Kinara</li>
-            <li className={styles.nav_item}>Objective</li>
-            <li className={styles.nav_item}>Kinara Life</li>
-            <li className={styles.nav_item}>Ministries</li>
-            <li className={styles.nav_item}>Discipleship</li>
-          </ul>
+        <div className={'mini-nav'}>
+          <div className="nav-items__container">
+            <h6 className="title3">Kinara</h6>
+            <ul className="nav-items">
+              {navs.map(({ name }) => {
+                return (
+                  <li
+                    className="nav-item"
+                    key={name}
+                    onClick={() => router.push(`${router.pathname}/#${name}`)}
+                  >
+                    {name}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
         <div className={styles.main_content}>
-          <h6 className={`${styles.content_title} orange-font`}>
+          <h6
+            id="What is Kinara"
+            className={`${styles.content_title} orange-font`}
+          >
             What is Kinara
           </h6>
           <p className="content_paragraph">
@@ -68,7 +86,9 @@ function Kinara() {
             discover and clarify their calling to full time ministry.
           </p>
           <ContentImage images={group1Images} />
-          <h6 className={`${styles.content_title} orange-font`}>Objective</h6>
+          <h6 id="Objective" className={`${styles.content_title} orange-font`}>
+            Objective
+          </h6>
           <div className={styles.title_and_content}>
             <span className="orange-font">
               <b>Conviction</b>
@@ -136,7 +156,12 @@ function Kinara() {
             </p>
           </div>
           <ContentImage images={group2Images} />
-          <h6 className={`${styles.content_title} orange-font`}>Kinara Life</h6>
+          <h6
+            id="Kinara Life"
+            className={`${styles.content_title} orange-font`}
+          >
+            Kinara Life
+          </h6>
           <p>
             Our trainees have weekly classes aimed at developing well rounded
             individuals through courses on:
@@ -148,7 +173,9 @@ function Kinara() {
             <li>Personal Management</li>
             <li>Ministry Skills</li>
           </ul>
-          <h6 className={`${styles.content_title} orange-font`}>Ministries</h6>
+          <h6 id="Ministries" className={`${styles.content_title} orange-font`}>
+            Ministries
+          </h6>
           <p>
             Each of our trainees is assigned to one of our ministry departments
             where they serve during their first year of training. They are also
@@ -157,7 +184,10 @@ function Kinara() {
             the trainees go on church planting assignments for a year where they
             sharpen and grow their ministry and leadership skills even more.
           </p>
-          <h6 className={`${styles.content_title} orange-font`}>
+          <h6
+            id="Discipleship"
+            className={`${styles.content_title} orange-font`}
+          >
             Discipleship
           </h6>
           <p>
@@ -167,6 +197,76 @@ function Kinara() {
           </p>
         </div>
       </main>
+      <style jsx>
+        {`
+          .mini-nav {
+            margin-top: 54px;
+            position: relative;
+          }
+
+          .nav-items__container {
+            position: sticky;
+            top: 74px;
+          }
+
+          .nav-item {
+            padding: 8px 0;
+            user-select: none;
+          }
+
+          @media screen and (max-width: 1130px) {
+            .mini-nav {
+              margin: 0;
+              position: fixed;
+              inset: 54px 0 auto 0;
+              border: 1px solid #ddd;
+              background-color: #ffffff;
+              width: 100vw;
+              overflow-x: scroll;
+            }
+
+            .nav-items__container h6 {
+              display: none;
+            }
+
+            .nav-items {
+              display: grid;
+              grid-template-columns: repeat(${navs.length}, 1fr);
+              width: fit-content;
+              grid-gap: 0 16px;
+              padding: 0 160px;
+              // removes the breaks caused by spaces in words
+              white-space: nowrap;
+            }
+
+            .nav-item::before {
+              display: none;
+            }
+
+            .nav-items:-webkit-scrollbar {
+              display: none;
+            }
+
+            /* Hide scrollbar for IE, Edge and Firefox */
+            .nav-items {
+              -ms-overflow-style: none; /* IE and Edge */
+              scrollbar-width: none; /* Firefox */
+            }
+          }
+
+          @media screen and (max-width: 1040px) {
+            .nav-items {
+              padding: 8px 60px;
+            }
+          }
+
+          @media screen and (max-width: 768px) {
+            .nav-items {
+              padding: 8px 16px;
+            }
+          }
+        `}
+      </style>
     </Layout>
   );
 }

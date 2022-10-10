@@ -1,3 +1,5 @@
+import Router from 'next/router';
+
 import Layout from '../../components/layout';
 import ContentImage from '../../components/content-image';
 
@@ -9,6 +11,8 @@ import plugingroupphoto from '../../public/plugingroupphoto.png';
 import styles from '../../styles/ministries.module.css';
 
 function PlugIn() {
+  const router = Router;
+
   const group1Images = [
     { src: pluginmembers, description: 'Image of plugin members in camp' },
   ];
@@ -17,6 +21,12 @@ function PlugIn() {
     { src: campsite, description: 'Image of plugin campsite' },
     { src: pluginmember, description: 'Image of a plugin member' },
     { src: plugingroupphoto, description: 'Plugin photo' },
+  ];
+
+  const navs = [
+    { name: 'Plug In' },
+    { name: 'Our 4 Objectives' },
+    { name: 'How it works' },
   ];
 
   return (
@@ -34,13 +44,25 @@ function PlugIn() {
         </p>
       </div>
       <main className={styles.main_section}>
-        <div className={styles.mini_nav}>
-          <h6 className="title3">Plug In</h6>
-          <ul className={styles.nav_items}>
-            <li className={styles.nav_item}>Plug In</li>
-            <li className={styles.nav_item}>Our 4 objectives</li>
-            <li className={styles.nav_item}>How It works</li>
-          </ul>
+        <div className="mini-nav">
+          <div className="nav-items__container">
+            <h6 id="Plug In" className="title3">
+              Plug In
+            </h6>
+            <ul className="nav-items">
+              {navs.map(({ name }) => {
+                return (
+                  <li
+                    className="nav-item"
+                    key={name}
+                    onClick={() => router.push(`${router.pathname}/#${name}`)}
+                  >
+                    {name}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
         <div className={styles.main_content}>
           <h6 className={`${styles.content_title} orange-font`}>Plugin</h6>
@@ -55,8 +77,11 @@ function PlugIn() {
             your life.
           </p>
           <ContentImage images={group1Images} />
-          <h6 className={`${styles.content_title} orange-font`}>
-            Our 4 objectives
+          <h6
+            id="Our 4 Objectives"
+            className={`${styles.content_title} orange-font`}
+          >
+            Our 4 Objectives
           </h6>
           <div className={styles.title_and_content}>
             <span className="orange-font">
@@ -103,7 +128,12 @@ function PlugIn() {
             </p>
           </div>
           <ContentImage images={group2Images} />
-          <h6 className={`${styles.content_title} orange-font`}>How it works</h6>
+          <h6
+            id="How it works"
+            className={`${styles.content_title} orange-font`}
+          >
+            How it works
+          </h6>
           <p>
             Every year we organise 3 Plug-In Seasons each{' '}
             <b className="orange-font">spanning across 10 weeks.</b> The Plug-In
@@ -127,6 +157,76 @@ function PlugIn() {
           </p>
         </div>
       </main>
+      <style jsx>
+        {`
+          .mini-nav {
+            margin-top: 54px;
+            position: relative;
+          }
+
+          .nav-items__container {
+            position: sticky;
+            top: 74px;
+          }
+
+          .nav-item {
+            padding: 8px 0;
+            user-select: none;
+          }
+
+          @media screen and (max-width: 1130px) {
+            .mini-nav {
+              margin: 0;
+              position: fixed;
+              inset: 54px 0 auto 0;
+              border: 1px solid #ddd;
+              background-color: #ffffff;
+              width: 100vw;
+              overflow-x: scroll;
+            }
+
+            .nav-items__container h6 {
+              display: none;
+            }
+
+            .nav-items {
+              display: grid;
+              grid-template-columns: repeat(${navs.length}, 1fr);
+              width: fit-content;
+              grid-gap: 0 16px;
+              padding: 0 160px;
+              // removes the breaks caused by spaces in words
+              white-space: nowrap;
+            }
+
+            .nav-item::before {
+              display: none;
+            }
+
+            .nav-items:-webkit-scrollbar {
+              display: none;
+            }
+
+            /* Hide scrollbar for IE, Edge and Firefox */
+            .nav-items {
+              -ms-overflow-style: none; /* IE and Edge */
+              scrollbar-width: none; /* Firefox */
+            }
+          }
+
+          @media screen and (max-width: 1040px) {
+            .nav-items {
+              padding: 8px 60px;
+            }
+          }
+
+          @media screen and (max-width: 768px) {
+            .nav-items {
+              padding: 8px 16px;
+            }
+          }
+        `}
+      </style>
     </Layout>
   );
 }

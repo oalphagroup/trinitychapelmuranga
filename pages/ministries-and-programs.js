@@ -18,10 +18,7 @@ function MinistriesAndPrograms() {
     var heroTitleOverlay = document.querySelector('.hero-title[data-overlay]');
 
     heroTitleOverlay.innerText = heroTitle.textContent;
-
-    if (window.matchMedia('(max-width: 1130px)').matches) {
-      setSmallScreenSize(true);
-    }
+    
     var canvas = document.getElementById('canv');
     var ctx = canvas.getContext('2d');
 
