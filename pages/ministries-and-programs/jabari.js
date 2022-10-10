@@ -35,7 +35,7 @@ function Jabari() {
           <h6 className="title3">Jabari</h6>
           <ul className={styles.nav_items}>
             <li className={styles.nav_item}>Overview</li>
-            <li className={styles.nav_item}>Jabari's aim</li>
+            <li className={styles.nav_item}>Jabari&apos;s aim</li>
           </ul>
         </div>
         <div className={styles.main_content}>
@@ -56,7 +56,7 @@ function Jabari() {
             as swift as gazelles in the mountains. 1 Chronicles 12:8
           </p>
           <ContentImage images={group2Images} />
-          <h6 className={`${styles.content_title} orange-font`}>It's aims</h6>
+          <h6 className={`${styles.content_title} orange-font`}>It&apos;s aims</h6>
           <p>
             The Jabari Men’s Ministry aims to foster an environment in which men
             can uniquely encounter God and discover the blessing of their

@@ -24,7 +24,8 @@ export default function Home() {
             <h1 className={styles.title}>404</h1>
             <h5 className={styles.minititle}>Page not found</h5>
             <p className={styles.content}>
-              Sorry we couldn’t find the page that you are looking for, we'll work on it
+              Sorry we couldn’t find the page that you are looking for, we
+              &apos;ll work on it
             </p>
             <button
               className={`${styles.site_button} button`}

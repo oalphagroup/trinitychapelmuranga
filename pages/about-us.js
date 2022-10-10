@@ -53,7 +53,7 @@ function AboutUs() {
       </Head>
       <div className={styles.navbar}>
         <div className={styles.inner_navbar}>
-          <p className={styles.navbar_title}>Trinity Chapel Murang'a</p>
+          <p className={styles.navbar_title}>Trinity Chapel Murang&apos;a</p>
           <ul className={styles.links}>
             <li>
               <a className={styles.navlink}>Mission & Vision</a>

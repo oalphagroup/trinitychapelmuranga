@@ -43,7 +43,7 @@ function Binti() {
           <h6 className="title3">Binti</h6>
           <ul className={styles.nav_items}>
             <li className={styles.nav_item}>Overview</li>
-            <li className={styles.nav_item}>Binti's aim</li>
+            <li className={styles.nav_item}>Binti&apos;s aim</li>
           </ul>
         </div>
         <div className={styles.main_content}>

@@ -162,7 +162,7 @@ function Footer() {
         </div>
       </div>
       <div className={styles.footer_bottom}>
-        <small className="name">Trinity Chapel Murang'a</small>
+        <small className="name">Trinity Chapel Murang&apos;a</small>
         <span className="copyright">
           © <small>{new Date().getFullYear()} All rights reserved.</small>
         </span>
