@@ -1,5 +1,5 @@
 .header {
-    min-height: 475px;
+    min-height: 500px;
     padding: 210px 160px 160px;
     padding-bottom: 64px;
 }
@@ -105,6 +105,11 @@
 }
 
 @media only screen and (max-width: 1464px) {
+    .header {
+        min-height: 500px;
+        padding-top: 200px 160px 0;
+    }
+
     .canvas_container {
         height: 50vh;
         clip-path: polygon(0 0, 100% 0, 100% 40%, 0% 100%);
@@ -122,7 +127,8 @@
     }
 
     .header {
-        padding: 60px;
+        min-height: 500px;
+        padding: 200px 60px 0;
         background-size: cover;
     }
 
@@ -153,7 +159,8 @@
     }
 
     .header {
-        padding: 16px;
+        min-height: 400px;
+        padding: 200px 16px 0;
     }
 
     .ministry_list__item {
