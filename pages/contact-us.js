@@ -97,19 +97,19 @@ function ContactUs() {
         </main>
         <div className={styles.contact_section}>
           <div className={styles.contact_item}>
-            <span className="orange-font"><b>Email Address</b></span>
+            <span><b>Email Address</b></span>
             <p>info@tcmuranga.org</p>
           </div>
           <div className={styles.contact_item}>
-            <span className="orange-font"><b>Telephone Number</b></span>
+            <span><b>Telephone Number</b></span>
             <p>+254 712 3456 789</p>
           </div>
           <div className={styles.contact_item}>
-            <span className="orange-font"><b>Postal Address</b></span>
+            <span><b>Postal Address</b></span>
             <p>P.O BOX 53635 -00200 Muranga, Kenya</p>
           </div>
           <div className={styles.contact_item}>
-            <span className="orange-font"><b>Church Physical Address</b></span>
+            <span><b>Church Physical Address</b></span>
             <p>
               Runo Arcade, 2nd floor ( Deekei ventures near mukuyu travellers
               stage).
