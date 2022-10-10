@@ -185,7 +185,7 @@ function AboutUs() {
           <ul className={styles.team_members__list}>
             {team_images.map((member) => {
               return (
-                <li className={styles.team_members__list_item} key={member.alt}>
+                <li key={member.alt}>
                   <Image
                     src={member.image}
                     alt={member.alt}

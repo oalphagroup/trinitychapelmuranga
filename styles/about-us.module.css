@@ -110,7 +110,7 @@
     display: grid;
     grid-template-columns: repeat(3, auto);
     margin-top: 48px;
-    grid-gap: 8px;
+    grid-gap: 40px 8px;
 }
 
 @media screen and (max-width: 1130px) {
@@ -143,9 +143,7 @@
     }
 
     .team_members__list {
-        display: grid;
         grid-template-columns: repeat(2, auto);
-        margin-top: 48px;
     }
 }
 
@@ -168,8 +166,6 @@
     }
 
     .team_members__list {
-        display: grid;
         grid-template-columns: repeat(1, auto);
-        margin-top: 48px;
     }
 }
