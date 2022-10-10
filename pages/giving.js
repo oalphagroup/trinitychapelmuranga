@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import Layout from '../components/layout';
 
-import backgroundplc from '../public/background.png';
+import placeholder from '../public/placeholder.png';
 import BankImage from '../public/Bank Image.png';
 import MPESAImage from '../public/MPESA image.png';
 
@@ -76,7 +76,7 @@ function Giving() {
               </small>
             </div>
             <div className={styles.giving_image}>
-              <Image src={backgroundplc} alt="Placeholder background" width={'480px'} height={'350px'} />
+              <Image src={placeholder} alt="Placeholder background" width={'480px'} height={'350px'} />
             </div>
           </div>
         </header>
