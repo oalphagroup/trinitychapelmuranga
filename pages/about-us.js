@@ -1,6 +1,7 @@
+import Router from 'next/router';
+
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Button from '../components/button';
 import Layout from '../components/layout';
@@ -18,6 +19,8 @@ import olivernjuguna from '../public/olivernjuguna.png';
 import harrietgitonga from '../public/harrietgitonga.png';
 
 function AboutUs() {
+  const router = Router;
+
   const team_images = [
     {
       image: pastorfrancis,
@@ -44,6 +47,13 @@ function AboutUs() {
       alt: 'Worship Team Leader Image',
     },
   ];
+
+  const navs = [
+    { name: 'Mission & T-Track' },
+    { name: 'Team Leaders' },
+    { name: 'Map' },
+  ];
+
   return (
     <Layout>
       <Head>
@@ -55,15 +65,17 @@ function AboutUs() {
         <div className={styles.inner_navbar}>
           <p className={styles.navbar_title}>Trinity Chapel Murang&apos;a</p>
           <ul className={styles.links}>
-            <li>
-              <a className={styles.navlink}>Mission & Vision</a>
-            </li>
-            <li>
-              <a className={styles.navlink}>Staff</a>
-            </li>
-            <li>
-              <a className={styles.navlink}>Map</a>
-            </li>
+            {navs.map(({ name }) => {
+              return (
+                <li
+                  className="nav-item"
+                  key={name}
+                  onClick={() => router.push(`${router.pathname}/#${name}`)}
+                >
+                  {name}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
@@ -86,8 +98,9 @@ function AboutUs() {
             <p className={styles.above_fold__content}>
               Our mission is to{' '}
               <b className="orange-font">Audaciously Impact Lives</b> and our
-              vision is to <b className="orange-font"> Grow DEEP to reach WIDE</b>
-              . Our desire is to see that each and every person that God brings
+              vision is to{' '}
+              <b className="orange-font"> Grow DEEP to reach WIDE</b>. Our
+              desire is to see that each and every person that God brings
               through our doors has a life changing encounter and begins to live
               a life of purpose. That they grow in their relationship with God,
               and become more Christ-like as His disciple.
@@ -103,14 +116,12 @@ function AboutUs() {
           </div>
         </div>
       </header>
-      <div className={styles.deep_and_wide__section}>
+      <div id="Mission & T-Track" className={styles.deep_and_wide__section}>
         <div className={styles.deep_and_wide__container}>
           <div className={styles.deep_and_wide__left}>
             <div className={styles.deep_and_wide__sub_section}>
               <small className={styles.section_mini__title}>Mission</small>
-              <h6 className="title1">
-                Audaciously <span className="orange-font">Impacting</span> Lives
-              </h6>
+              <h6 className="title1">Audaciously Impacting Lives</h6>
               <p className={styles.mission_and_vision__artical}>
                 Our desire is to see that we can positively impact the lives of
                 people here in Murang’a and in the rest of the world. This we
@@ -120,10 +131,7 @@ function AboutUs() {
             </div>
             <div className={styles.deep_and_wide__sub_section}>
               <small className={styles.section_mini__title}>Vision</small>
-              <h6 className="title1">
-                Grow <span className="orange-font">deep</span> to reach{' '}
-                <span className="orange-font">wide</span>
-              </h6>
+              <h6 className="title1">Grow deepto reach wide </h6>
               <div className={styles.list_group}>
                 <div className={styles.list_inner__group}>
                   <div className={styles.illustration1}>
@@ -157,19 +165,21 @@ function AboutUs() {
             </div>
           </div>
           <div className={styles.deep_and_wide__right}>
-            <h6 className="title1">
-              <span className="orange-font">Daily Devotion</span>
-            </h6>
+            <h6 className="title1">Discipleship Track</h6>
             <p className={styles.mission_and_vision__artical}>
-              Nothing causes personal spiritual growth like developing the
-              discipline of reading God’s word daily and listening to his
-              leading and direction for the day. So we work hard at helping our
-              members learn how to listen to God for themselves on a daily
-              basis.
+              Our transformationla track has 4 stages.{' '}
+              <b className="orange-font">I grow, I belong, I serve</b> and
+              finally <b className="orange-font">I go</b>. As a church we
+              encourage personal prayer through daily devotion. We encourage
+              each member of our church to be in a small, home fellowship bible
+              study, which we call an eGroup. Our desire is that each member
+              becomes active in serving in any ministry they feel compelled
+              towards in the church.We believe that our God given mission is to
+              spread the gospel to the ends of the world.
             </p>
           </div>
         </div>
-        <div className="team">
+        <div id="Team Leaders" className="team">
           <small className={styles.section_mini__title}>Team</small>
           <h6 className="title1">Meet the team leaders</h6>
           <ul className={styles.team_members__list}>
