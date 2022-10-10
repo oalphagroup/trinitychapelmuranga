@@ -1,10 +1,11 @@
+import { useEffect } from 'react';
+
 import Head from 'next/head';
 import Image from 'next/image';
 
 import Button from '../components/button';
 import Layout from '../components/layout';
 
-// import arrowforward1 from '../public/arrow-forward 1.svg';
 import arrowforward2 from '../public/arrow-forward 2.svg';
 import pluginbonfire from '../public/plugin-bonfire.png';
 import jabariimage from '../public/jabari.png';
@@ -12,6 +13,61 @@ import jabariimage from '../public/jabari.png';
 import styles from '../styles/ministries-and-programs.module.css';
 
 function MinistriesAndPrograms() {
+  useEffect(() => {
+    var heroTitle = document.querySelector('.hero-title');
+    var heroTitleOverlay = document.querySelector('.hero-title[data-overlay]');
+
+    heroTitleOverlay.innerText = heroTitle.textContent;
+
+    if (window.matchMedia('(max-width: 1130px)').matches) {
+      setSmallScreenSize(true);
+    }
+    var canvas = document.getElementById('canv');
+    var ctx = canvas.getContext('2d');
+
+    var col = function (x, y, r, g, b) {
+      ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+      ctx.fillRect(x, y, 1, 1);
+    };
+
+    var R = function (x, y, t) {
+      return Math.floor(176 + 80 * Math.cos((x * x - y * y) / 300 + t));
+    };
+
+    var G = function (x, y, t) {
+      return Math.floor(
+        176 +
+          80 *
+            Math.sin((x * x * Math.cos(t / 4) + y * y * Math.sin(t / 3)) / 300)
+      );
+    };
+
+    var B = function (x, y, t) {
+      return Math.floor(
+        176 +
+          80 *
+            Math.sin(
+              5 * Math.sin(t / 9) +
+                ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100
+            )
+      );
+    };
+
+    var t = 0;
+
+    var run = function () {
+      for (var x = 0; x <= 35; x++) {
+        for (var y = 0; y <= 35; y++) {
+          col(x, y, R(x, y, t), G(x, y, t), B(x, y, t));
+        }
+      }
+      t = t + 0.06;
+      window.requestAnimationFrame(run);
+    };
+
+    run();
+  }, []);
+
   const ministries = [
     {
       image: jabariimage,
@@ -72,8 +128,23 @@ function MinistriesAndPrograms() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className={styles.header}>
-        <div className={styles.header_content}>
-          <h1>Ministries and Programs</h1>
+        <div className={styles.canvas_container}>
+          <canvas
+            style={{ width: '100%', height: '100%' }}
+            id="canv"
+            width="32"
+            height="32"
+          ></canvas>
+        </div>
+        <div className={`${styles.hero_title__container}`}>
+          <h1 className={`${styles.hero_title} hero-title`}>
+            Ministries and Programs
+          </h1>
+          <span
+            aria-hidden="true"
+            className={`${styles.hero_title} hero-title`}
+            data-overlay
+          ></span>
         </div>
       </header>
       <div className={styles.m_and_p}>

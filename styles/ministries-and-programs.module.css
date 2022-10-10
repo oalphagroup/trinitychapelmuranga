@@ -1,16 +1,38 @@
 .header {
-    background-image: url('../public/gradient.png');
-    background-position: top;
-    background-size: 100vw;
-    background-repeat: no-repeat;
-    margin-top: -7px;
     min-height: 475px;
-    padding: 0 160px;
+    padding: 210px 160px 160px;
+    padding-bottom: 64px;
 }
 
-.header_content {
-    max-width: 800px;
-    padding-top: 193px;
+.hero_title__container {
+    position: relative;
+    max-width: 650px;
+}
+
+.hero_title {
+    color: #333333;
+    mix-blend-mode: color-burn;
+    user-select: none;
+}
+
+.hero_title[data-overlay] {
+    color: #111111;
+    position: absolute;
+    left: 0;
+    top: 0;
+    mix-blend-mode: revert;
+    user-select: none;
+    z-index: 2;
+    opacity: .5;
+}
+
+.canvas_container {
+    position: absolute;
+    inset: 0;
+    height: 65vh;
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0% 100%);
+    isolation: isolate;
+    z-index: -1;
 }
 
 .header_content__p {
@@ -82,7 +104,19 @@
     color: rgba(0, 0, 0, 0.05);
 }
 
+@media only screen and (max-width: 1464px) {
+    .canvas_container {
+        height: 50vh;
+        clip-path: polygon(0 0, 100% 0, 100% 40%, 0% 100%);
+    }
+}
+
 @media screen and (max-width: 1130px) {
+    .canvas_container {
+        height: 50vh;
+        clip-path: polygon(0 0, 100% 0, 100% 40%, 0% 80%);
+    }
+
     .m_and_p {
         padding: 0 60px;
     }
@@ -109,6 +143,11 @@
 }
 
 @media screen and (max-width: 768px) {
+    .canvas_container {
+        height: 50vh;
+        clip-path: polygon(0 0, 100% 0, 100% 55%, 0% 85%);
+    }
+
     .m_and_p {
         padding: 0 16px;
     }

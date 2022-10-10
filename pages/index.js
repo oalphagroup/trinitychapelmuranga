@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -28,7 +30,6 @@ import earthicon1 from '../public/icons/earth-outline 1.svg';
 import earthicon2 from '../public/icons/earth-outline 2.svg';
 
 import styles from '../styles/home.module.css';
-import { useEffect, useState } from 'react';
 
 export default function Home() {
   useEffect(() => {
