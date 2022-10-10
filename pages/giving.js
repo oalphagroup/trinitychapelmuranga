@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 
 import backgroundplc from '../public/background.png';
 import BankImage from '../public/Bank Image.png';
-import MPESAImage from '../public/MPESA Image.png';
+import MPESAImage from '../public/MPESA image.png';
 
 import styles from '../styles/giving.module.css';
 
