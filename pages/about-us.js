@@ -149,7 +149,7 @@ function AboutUs() {
                 </div>
                 <div className={styles.list_inner__group}>
                   <div className={styles.illustration2}>
-                    <Image src={leaves} alt="Deep Image" />
+                    <Image src={leaves} alt="Wide Image" />
                   </div>
                   <p>
                     <b>Wide</b>
